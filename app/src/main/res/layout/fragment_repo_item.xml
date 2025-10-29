@@ -14,6 +14,7 @@
         android:padding="16dp"
         >
         <ImageView
+            android:id="@+id/repo_owner_image"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:src="@drawable/ic_launcher_foreground"

@@ -2,4 +2,10 @@
 plugins {
     alias(libs.plugins.android.application) apply false
     alias(libs.plugins.kotlin.android) apply false
+    id("co.uzzu.dotenv.gradle") version "4.0.0"
 }
+
+
+
+
+
