@@ -2,12 +2,11 @@ package ec.edu.uisek.githubclient
 
 import android.os.Bundle
 import android.widget.Toast
-import androidx.activity.enableEdgeToEdge
+
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
+
 import ec.edu.uisek.githubclient.databinding.ActivityMainBinding
-import ec.edu.uisek.githubclient.databinding.FragmentRepoItemBinding
+
 import ec.edu.uisek.githubclient.services.GithubApiService
 import ec.edu.uisek.githubclient.services.RetrofitClient
 import ec.edu.uisek.githubclient.models.Repo
@@ -31,6 +30,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         setupRecyclerView()
+        fetchRepositories()
     }
 
     private fun setupRecyclerView() {
@@ -48,7 +48,6 @@ class MainActivity : AppCompatActivity() {
 
         call.enqueue(object : Callback<List<Repo>> {
             override fun onResponse(call: Call<List<Repo>?>, response: Response<List<Repo>?>) {
-                showMessage("Se cargaron los repositorios")
                 if(response.isSuccessful) {
                     val repos = response.body()
                     if (repos != null && repos.isNotEmpty()) {
@@ -76,7 +75,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun showMessage (message: String){
-        Toast.makeText(this, message, Toast.LENGTH_LONG)
+        Toast.makeText(this, message, Toast.LENGTH_LONG).show()
     }
 
 

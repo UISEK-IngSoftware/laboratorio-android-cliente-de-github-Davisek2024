@@ -19,7 +19,7 @@ android {
         val envFile = rootProject.file(".env")
         val githubToken = if (envFile.exists()){
             envFile.readLines()
-                .firstOrNull{it.startsWith("GITHUB_API_CLIENT")}
+                .firstOrNull{it.startsWith("GITHUB_API_TOKEN")}
                 ?.substringAfter("GITHUB_API_TOKEN=")
                 ?.trim()
                 ?: ""

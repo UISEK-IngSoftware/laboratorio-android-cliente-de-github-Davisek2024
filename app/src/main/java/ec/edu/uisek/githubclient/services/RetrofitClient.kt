@@ -29,7 +29,7 @@ object RetrofitClient {
         // Si el token está configurado, agregarlo al header Authorization
         val newRequest = if (token.isNotEmpty()) {
             originalRequest.newBuilder()
-                .addHeader("Authorization", "token $token")
+                .addHeader("Authorization", "Bearer $token")
                 .addHeader("Accept", "application/vnd.github.v3+json")
                 .build()
         } else {
