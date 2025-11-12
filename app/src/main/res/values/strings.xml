@@ -9,6 +9,13 @@
     <string name="test_lang">Kotlin</string>
     <string name="cancel">Cancelar</string>
     <string name="save">Guardar</string>
+    <string name="edit_repo">Editar</string>
+    <string name="delete_repo">Borrar</string>
+    <string name="confirm_delete_title">Confirmar borrado</string>
+    <string name="confirm_delete_message">¿Estás seguro que quieres borrar el repositorio?</string>
+    <string name="yes">Sí</string>
+    <string name="repo_deleted_successfully">Repositorio borrado correctamente</string>
+
 
 
 </resources>

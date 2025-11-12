@@ -31,8 +31,6 @@
         app:shapeAppearanceOverlay="@style/ShapeAppearance.App.Circle"
         android:layout_margin="16dp"
         >
-
-
     </com.google.android.material.floatingactionbutton.FloatingActionButton>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

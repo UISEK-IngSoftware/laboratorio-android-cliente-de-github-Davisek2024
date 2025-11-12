@@ -10,99 +10,125 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
+        android:orientation="vertical"
         android:padding="16dp"
         >
-        <ImageView
-            android:id="@+id/repo_owner_image"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:src="@drawable/ic_launcher_foreground"
-            />
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
-
+            android:orientation="horizontal"
+            >
+            <ImageView
+                android:id="@+id/repo_owner_image"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/ic_launcher_foreground"
+                />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:orientation="vertical">
 
-                <TextView
-                    android:layout_width="100dp"
-                    android:layout_height="wrap_content"
-                    android:text="@string/repo_name"
-                    android:padding="12dp"
-                    android:textStyle="bold"
 
-                    />
-
-                <TextView
-                    android:id="@+id/repo_name"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/repo_name1"
-                    android:padding="12dp"
-                    android:textStyle="italic"
+                    android:orientation="horizontal">
 
-                    />
+                    <TextView
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:text="@string/repo_name"
+                        android:padding="12dp"
+                        android:textStyle="bold"
+
+                        />
+
+                    <TextView
+                        android:id="@+id/repo_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/repo_name1"
+                        android:padding="12dp"
+                        android:textStyle="italic"
+
+                        />
 
 
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:text="@string/repo_description"
+                        android:padding="12dp"
+                        android:textStyle="bold"
+
+                        />
+
+                    <TextView
+                        android:id="@+id/repo_description"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/repo_description1"
+                        android:padding="12dp"
+                        android:textStyle="italic"
+
+                        />
+
+                </LinearLayout><LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:text="@string/repo_lang"
+                        android:padding="12dp"
+                        android:textStyle="bold"
+
+                        />
+
+                    <TextView
+                        android:id="@+id/repo_lang"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/test_lang"
+                        android:padding="12dp"
+                        android:textStyle="italic"
+
+                        />
+
+                </LinearLayout>
             </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="end">
 
-
-            <LinearLayout
-                android:layout_width="match_parent"
+            <ImageButton
+                android:id="@+id/edit_repo_button"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:src="@drawable/outline_approval_delegation_off_24"
+                android:contentDescription="@string/edit_repo" />
 
-            <TextView
-                android:layout_width="100dp"
+            <ImageButton
+                android:id="@+id/delete_repo_button"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/repo_description"
-                android:padding="12dp"
-                android:textStyle="bold"
-
-                />
-
-            <TextView
-                android:id="@+id/repo_description"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/repo_description1"
-                android:padding="12dp"
-                android:textStyle="italic"
-
-                />
-
-            </LinearLayout><LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:text="@string/repo_lang"
-                android:padding="12dp"
-                android:textStyle="bold"
-
-                />
-
-            <TextView
-                android:id="@+id/repo_lang"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/test_lang"
-                android:padding="12dp"
-                android:textStyle="italic"
-
-                />
-
-            </LinearLayout>
+                android:src="@drawable/outline_auto_delete_24"
+                android:contentDescription="@string/delete_repo" />
         </LinearLayout>
     </LinearLayout>
 
