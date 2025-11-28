@@ -7,30 +7,55 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/repos_recycler_view"
+    <LinearLayout
+        android:id="@+id/logout_container"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="16dp"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageButton
+            android:id="@+id/logout_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/logout"
+            android:src="@drawable/ic_menu_logout" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/logout" />
+
+    </LinearLayout>
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/repos_recycler_view"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/logout_container"
         app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-        tools:listitem="@layout/fragment_repo_item"
-        />
+        tools:listitem="@layout/fragment_repo_item" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/repo_fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:backgroundTint="@color/uisek_blue"
+        android:src="@drawable/baseline_add_24"
+        android:tint="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:src="@drawable/baseline_add_24"
-        android:backgroundTint="@color/uisek_blue"
-        android:tint="@color/white"
-        app:shapeAppearanceOverlay="@style/ShapeAppearance.App.Circle"
-        android:layout_margin="16dp"
-        >
-    </com.google.android.material.floatingactionbutton.FloatingActionButton>
+        app:shapeAppearanceOverlay="@style/ShapeAppearance.App.Circle" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -9,6 +9,7 @@ import ec.edu.uisek.githubclient.databinding.ActivityMainBinding
 import ec.edu.uisek.githubclient.models.Repo
 import ec.edu.uisek.githubclient.services.GithubApiService
 import ec.edu.uisek.githubclient.services.RetrofitClient
+import ec.edu.uisek.githubclient.services.SessionManager
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -17,12 +18,14 @@ import retrofit2.Response
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var reposAdapter: ReposAdapter
+    private lateinit var sessionManager: SessionManager
     private val apiService: GithubApiService by lazy {
-        RetrofitClient.gitHubApiService
+        RetrofitClient.getApiService()
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        sessionManager = SessionManager(this)
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -33,6 +36,18 @@ class MainActivity : AppCompatActivity() {
             displayRepoForm()
         }
 
+        binding.logoutContainer.setOnClickListener {
+            logoutUser()
+        }
+
+    }
+
+    private fun logoutUser() {
+        sessionManager.clearSession()
+        Toast.makeText(this, R.string.logout_success_message, Toast.LENGTH_SHORT).show()
+        val intent = Intent(this, LoginActivity::class.java)
+        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+        startActivity(intent)
     }
 
     override fun onResume() {
@@ -74,7 +89,11 @@ class MainActivity : AppCompatActivity() {
                     }
                 } else {
                     val errorMessage = when (response.code()) {
-                        401 -> "No autorizado"
+                        401 -> {
+                            // Unauthorized, likely token expired or invalid
+                            logoutUser()
+                            "Sesión expirada. Por favor, inicie sesión de nuevo."
+                        }
                         403 -> "Prohibido"
                         404 -> "No encontrado"
                         else -> "Error ${response.code()}"
